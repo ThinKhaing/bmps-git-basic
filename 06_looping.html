@@ -1,0 +1,55 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+  </head>
+  <style>
+    p {
+      color: red;
+    }
+  </style>
+  <body>
+    <div id="app">
+      <input type="text" v-model="message" />
+      <h1>Lopping</h1>
+      <ul>
+        <li v-for="(item, index) in numbers">{{ index }} | {{ item }}</li>
+      </ul>
+
+      <table border="1">
+          <tr>
+              <th>Id</th>
+              <th>Name</th>
+              <th>Gender</th>
+          </tr>
+          <tr v-for="item in items">
+              <td>{{ item.id }}</td>
+              <td>{{ item.name }}</td>
+              <td>{{ item.gender }}</td>
+          </tr>
+      </table>
+      <!-- <ul>
+          <li v-for="item in items">{{ item.name }}</li>
+      </ul> -->
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+      let app = new Vue({
+        el: "#app",
+        data: {
+          message: "",
+          numbers: ["one", "two", "three"],
+          items: [
+                { id: "1", name: "thin khaing", gender: "female" },
+                { id: "2", name: "Zin Wai", gender: "female" },
+                { id: "3", name: "Kyaw Kyaw", gender: "male" }
+            ],
+        },
+        methods: {},
+      });
+    </script>
+  </body>
+</html>

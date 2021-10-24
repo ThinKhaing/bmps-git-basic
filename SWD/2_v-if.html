@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <div id="app">
+        <h4>{{ randomNumber }}</h4>
+        <h3 v-if="randomNumber > 5">This is v-if</h3>
+        <h3 v-else>Sorry</h3>
+        <button @mouseover="run()">Click</button>
+        <p>{{ lengthOfName }}</p>
+        <p>{{ startChar }}</p>
+        <p>{{ nameReverse }}</p>
+        <p>{{ nameToShort }}</p>
+    </div>
+    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14/dist/vue.js"></script>
+    <script>
+        let app = new Vue({
+            el: "#app",
+            data: {
+                randomNumber: 0,
+                name: "thin khaing"
+            },
+            computed: {
+               lengthOfName() {
+                   return this.name.length;
+               },
+               startChar() {
+                   return this.name[0];
+               },
+               nameReverse() {
+                   return this.name.split("").reverse().join("")
+               },
+               nameToShort() {
+                   let nameToArr = this.name.split(" ");
+                   return nameToArr.map(el=>el[0]).join(" ").toUpperCase();
+               }
+            },
+            methods: {
+               run() {
+                   this.randomNumber = Math.random().toFixed(1) * 10;
+               }
+            }
+        });
+    </script>
+</body>
+</html>
